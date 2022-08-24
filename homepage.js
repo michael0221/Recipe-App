@@ -1,6 +1,6 @@
 let gallery = document.getElementsByClassName("gallery");
 let container = document.getElementById("container");
-var number = 10;
+var number = 3;
 
 
 const url = `https://api.spoonacular.com/food/search?apiKey=b92272498f774713a9be6482436c0249`;
@@ -16,7 +16,7 @@ for (let i = 0; i < 1; i++) {
         const response = await fetch(url + '&type=breakfast&number=' + number, options);
         const data = await response.json();
         console.log(data.searchResults[0].results);
-        // console.log(data.searchResults[0].results[1]["name"]);
+        console.log(data.searchResults[0].results[1]["name"]);
         for (loop = 0; loop < number; loop++) {
             const subContainer = document.createElement("div");
             subContainer.classList.add("gallery1-cell");
