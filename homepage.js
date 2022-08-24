@@ -1,27 +1,40 @@
-// let gallery = document.getElementById("gallery1");
+let gallery = document.getElementsByClassName("gallery");
 let container = document.getElementById("container");
-let breakfast = "breakfast";
-let snacks = "snacks";
-let pastries = "pastries";
+var number = 10;
 
-let apiKey = 'b92272498f774713a9be6482436c0249'
-let url = `https://api.spoonacular.com/food/search?apiKey=${apiKey}`
 
-async function getFoods() {
-    let response = await fetch(url)
-    let data = await response.json()
-        // for (let i = 0; i < 20; i++) {
+const url = `https://api.spoonacular.com/food/search?apiKey=b92272498f774713a9be6482436c0249`;
+const options = {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
 
-    // film = movie[i].innerHTML
-    // link[i].href = 'https://www.themoviedb.org/movie/' + data.results[i].id
-    // image[i].src = 'https://www.themoviedb.org/t/p/w220_and_h330_face' + data.results[i].poster_path
-    // image[i].alt = data.results[i].title
-    // title[i].textContent = data.results[i].title
-
-    // }
-    // let food = `https://api.spoonacular.com/food/search?query=${snacks}&number=${i}`
-
-    console.log(data)
-
+    }
 }
-getFoods()
+for (let i = 0; i < 1; i++) {
+    async function getFoods() {
+        const response = await fetch(url + '&type=breakfast&number=' + number, options);
+        const data = await response.json();
+        console.log(data.searchResults[0].results);
+        // console.log(data.searchResults[0].results[1]["name"]);
+        for (loop = 0; loop < number; loop++) {
+            const subContainer = document.createElement("div");
+            subContainer.classList.add("gallery1-cell");
+            const image = document.createElement("img");
+            image.classList.add("pic");
+            image.src = data.searchResults[0].results[loop]["image"];
+            subContainer.append(image);
+            const title = document.createElement("h4");
+            image.after(title);
+            title.textContent = data.searchResults[0].results[loop]["name"];
+            const text = document.createElement("p");
+            text.classList.add("desc");
+            title.after(text);
+            var newtexts = data.searchResults[0].results[loop]["content"].substring(0, 200);
+            newtexts = newtexts.replace(/<\/?[^>]+(>|$)/g, "");
+            // newtexts = newtexts.replace(/[^0-9A-Za-z\ ]/g, '');
+            text.textContent = newtexts;
+        }
+    }
+    getFoods()
+}
