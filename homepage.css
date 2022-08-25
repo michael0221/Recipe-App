@@ -18,7 +18,12 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 20px 0px;
+    padding: 20px 15px;
+}
+
+.whiskLogo {
+    height: 30px;
+    margin-right: 100px;
 }
 
 #container {
@@ -123,6 +128,6 @@ h4 {
 a {
     text-decoration: none;
     color: black;
-    margin-right: 15px;
+    margin-right: 50px;
     font-size: 18px;
 }

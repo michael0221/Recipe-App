@@ -58,10 +58,7 @@ async function fetchURLs() {
             fetch(url + '&type=dessert&number=' + number, options).then((response) => response.json())
         ]);
 
-        // for (var i of data) {
-        console.log(data);
 
-        // }
 
     } catch (error) {
         console.log(error);
