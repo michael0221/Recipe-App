@@ -76,10 +76,30 @@ h4 {
     padding: 5px 10px;
 }
 
+#gallery1 p {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+#gallery2 p {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
 
 /* slideshow part */
 
 #gallery {
+    background: #FFF;
+    display: flex;
+}
+
+#gallery1 {
+    background: #FFF;
+    display: flex;
+}
+
+#gallery2 {
     background: #FFF;
     display: flex;
 }
@@ -101,14 +121,6 @@ h4 {
     border-top-right-radius: 10px;
 }
 
-
-/* .subText {
-    white-space: nowrap;
-    width: 300px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-} */
-
 .links {
     width: 900px;
     display: flex;
@@ -117,6 +129,7 @@ h4 {
     align-items: center;
     margin: auto;
     margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .links a {
